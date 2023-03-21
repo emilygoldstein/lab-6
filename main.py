@@ -9,7 +9,14 @@ def encode(password): # emily goldstein
     return res
 
 def decode(password):
-    pass
+    password_list = [int(x) for x in str(password)]
+    new_password_list = []
+    for i in password_list:
+        x = i - 3
+        new_password_list.append(x)
+    password = ''.join(str(x) for x in new_password_list)
+    int(password)
+    return password
 
 if __name__ == "__main__":
     while True:
@@ -26,7 +33,8 @@ if __name__ == "__main__":
             res = encode(password)
             print('Your password has been encoded and stored!\n')
         elif option == 2:
-            pass
+            encoded_password = encode(password)
+            print(f'The encoded password is {encoded_password}, and the original password is {password}.')
         else:
             print('Invalid option.')
 
